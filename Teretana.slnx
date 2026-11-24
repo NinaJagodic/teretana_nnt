@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Teretana.Api/Teretana.Api.csproj" />
+  <Project Path="Teretana.Application/Teretana.Application.csproj" Id="ea99883f-d3bd-45ab-9f76-3ca099e457a8" />
   <Project Path="Teretana.Data/Teretana.Data.csproj" />
   <Project Path="Teretana.Domain/Teretana.Domain.csproj" />
 </Solution>

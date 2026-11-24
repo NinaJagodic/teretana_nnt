@@ -1,6 +1,10 @@
 @Teretana.Api_HostAddress = http://localhost:5016
 
-GET {{Teretana.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### Filter A (~8 redova)
+GET {{Teretana.Api_HostAddress}}/uplate?status=Istekla&od=2026-03-10T00:00:00&do=2026-03-10T12:00:00
 
-###
+### Filter B (~940 redova)
+GET {{Teretana.Api_HostAddress}}/uplate?status=Placena&od=2026-01-01&do=2026-01-13
+
+### Filter C (~30 000 redova)
+GET {{Teretana.Api_HostAddress}}/uplate?status=Placena&od=2025-01-01&do=2026-01-01
