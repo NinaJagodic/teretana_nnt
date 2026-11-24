@@ -10,6 +10,13 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<TeretanaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("TeretanaDb")));
 var app = builder.Build();
+if (args.Contains("--seed"))
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<TeretanaDbContext>();
+    await DbSeeder.SeedAsync(db);
+    return;
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
