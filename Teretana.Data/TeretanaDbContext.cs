@@ -35,6 +35,7 @@ namespace Teretana.Data
                 e.Property(x => x.Iznos).HasPrecision(10, 2);
                 e.Property(x => x.Status).HasConversion<string>().HasMaxLength(20);
                 e.HasOne(x => x.Clan).WithMany(c => c.Uplate).HasForeignKey(x => x.ClanId);
+                e.HasIndex(x => new { x.Status, x.Datum }).HasDatabaseName("IX_Uplate_Status_Datum");
             });
 
             b.Entity<Trening>(e =>

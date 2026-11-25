@@ -7,8 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddDbContext<TeretanaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("TeretanaDb")));
-builder.Services.AddMediatR(cfg =>
+builder.Services.AddDbContext<TeretanaDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TeretanaDb"))
+           .EnableSensitiveDataLogging()); builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(GetUplateQuery).Assembly));
 
 builder.Services.AddControllers()

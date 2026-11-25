@@ -136,6 +136,9 @@ namespace Teretana.Data.Migrations
 
                     b.HasIndex("ClanId");
 
+                    b.HasIndex("Status", "Datum")
+                        .HasDatabaseName("IX_Uplate_Status_Datum");
+
                     b.ToTable("Uplate");
                 });
 
